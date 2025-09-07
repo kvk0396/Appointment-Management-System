@@ -109,3 +109,30 @@ This project is a **Spring Boot Microservices-based Healthcare Appointment Manag
 6. **Notification Service** sends emails on important actions
 
 ---
+
+## 🏗️ Architecture Diagram
+
+```mermaid
+flowchart TD
+    Client[Client App] -->|Login/Register| APIGateway[API Gateway]
+
+    subgraph Security[Authentication & Authorization]
+        APIGateway -->|Validates JWT| UserService[User Service]
+    end
+
+    APIGateway --> PatientService[Patient Service]
+    APIGateway --> DoctorService[Doctor Service]
+    APIGateway --> AppointmentService[Appointment Service]
+    APIGateway --> AvailabilityService[Availability Service]
+    APIGateway --> ConsultationService[Consultation Service]
+    APIGateway --> NotificationService[Notification Service]
+    APIGateway --> ConfigServer[Config Server]
+
+    PatientService -->|Book/Cancel/Update| AppointmentService
+    DoctorService -->|Manage Availability| AvailabilityService
+    DoctorService -->|Add Consultations| ConsultationService
+    PatientService -->|View Consultations| ConsultationService
+
+    AppointmentService -->|Send Notifications| NotificationService
+    UserService -->|Send Registration Email| NotificationService
+
