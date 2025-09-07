@@ -110,29 +110,35 @@ This project is a **Spring Boot Microservices-based Healthcare Appointment Manag
 
 ---
 
-## 🏗️ Architecture Diagram
+🚀 Getting Started
+Prerequisites
 
-```mermaid
-flowchart TD
-    Client[Client App] -->|Login/Register| APIGateway[API Gateway]
+Java 17+
 
-    subgraph Security[Authentication & Authorization]
-        APIGateway -->|Validates JWT| UserService[User Service]
-    end
+Maven 3.8+
 
-    APIGateway --> PatientService[Patient Service]
-    APIGateway --> DoctorService[Doctor Service]
-    APIGateway --> AppointmentService[Appointment Service]
-    APIGateway --> AvailabilityService[Availability Service]
-    APIGateway --> ConsultationService[Consultation Service]
-    APIGateway --> NotificationService[Notification Service]
-    APIGateway --> ConfigServer[Config Server]
+MySQL running locally
 
-    PatientService -->|Book/Cancel/Update| AppointmentService
-    DoctorService -->|Manage Availability| AvailabilityService
-    DoctorService -->|Add Consultations| ConsultationService
-    PatientService -->|View Consultations| ConsultationService
+Spring Cloud dependencies
 
-    AppointmentService -->|Send Notifications| NotificationService
-    UserService -->|Send Registration Email| NotificationService
+Steps to Run
 
+Clone the repository:
+
+git clone https://github.com/your-username/healthcare-appointment-management.git
+cd healthcare-appointment-management
+
+
+Set up Config Server with a GitHub config repo.
+
+Update application.properties / application.yml for MySQL credentials.
+
+Build and run services in order:
+
+Config Server
+
+API Gateway
+
+User Service
+
+Other microservices
