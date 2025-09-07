@@ -110,35 +110,13 @@ This project is a **Spring Boot Microservices-based Healthcare Appointment Manag
 
 ---
 
-🚀 Getting Started
-Prerequisites
+# 🚀 Getting Started
 
-Java 17+
-
-Maven 3.8+
-
-MySQL running locally
-
-Spring Cloud dependencies
-
-Steps to Run
-
-Clone the repository:
-
-git clone https://github.com/your-username/healthcare-appointment-management.git
-cd healthcare-appointment-management
+## Prerequisites
+- Java 17+
+- Maven 3.8+
+- MySQL running locally
+- Spring Cloud dependencies
 
 
-Set up Config Server with a GitHub config repo.
 
-Update application.properties / application.yml for MySQL credentials.
-
-Build and run services in order:
-
-Config Server
-
-API Gateway
-
-User Service
-
-Other microservices
